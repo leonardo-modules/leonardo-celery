@@ -43,8 +43,8 @@ Start worker
 
     python manage.py celery worker -B -E
 
-Using from admin
-----------------
+Syncing state
+-------------
 
 For syncing state to databse run ``celerycam``
 
@@ -56,9 +56,22 @@ Tasks are discovered by standard mechanism::
 
     app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
+Use smart caching
+-----------------
+
+Use ``cacheback`` jobs for fetching data asynchronously.
+
+.. code-block:: bash
+
+    pip install leonardo-celery[cacheback]
+
+Define your jobs. More about Jobs http://django-cacheback.readthedocs.org/en/latest/usage.html#as-an-instance-of-cacheback-job
+
 Read More
 ---------
 
 * https://celery.readthedocs.org/en/release21-maint/userguide/monitoring.html#starting-the-monitor
 * http://celery.readthedocs.org/en/latest/index.html
 * https://github.com/django-leonardo/django-leonardo
+* https://github.com/michaelkuty/django-cacheback
+* http://django-cacheback.readthedocs.org/en/latest/usage.html#as-an-instance-of-cacheback-job
