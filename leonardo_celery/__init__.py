@@ -12,10 +12,6 @@ LEONARDO_APPS = [
     'djcelery'
 ]
 
-LEONARDO_MIGRATION_MODULES = {
-    'djcelery': 'leonardo_celery.migrations'
-}
-
 
 class Config(AppConfig):
     name = 'leonardo_celery'
