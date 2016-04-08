@@ -18,12 +18,5 @@ class Config(AppConfig):
     verbose_name = _(LEONARDO_OPTGROUP)
 
     def ready(self):
-        import djcelery
-        from celery import Celery
 
-        app = Celery(self.name)
-
-        from django.conf import settings
-        app.config_from_object('django.conf:settings')
-        app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
-        djcelery.setup_loader()
+        from .celery import app
